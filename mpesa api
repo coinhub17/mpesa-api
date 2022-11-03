@@ -1,0 +1,14 @@
+import json
+import requests
+from requests.auth import HTTPBasicAuth
+
+def AccessToken(request):
+    consumer_key=""
+    consumer_secret=""
+    url="https://sandbox-safaricom.co.ke/oauth/v1/generate?grant_type_credential"
+    v=requests.get(url,auth=HTTPBasicAuth(consumer_key,consumer_secret))
+    token=json.loads(v.text)
+    validted_token=token["access_token"]
+    print(validted_token)
+    
+    AccessToken(request)
